@@ -1,0 +1,858 @@
+:root {
+  --teal-dark: #1B7A6E;
+  --teal: #26A89A;
+  --teal-light: #4CBFB4;
+  --bg: #E8EDF5;
+  --card-gray: #CFCFCF;
+  --white: #ffffff;
+  --text-dark: #1A1A1A;
+  --text-mid: #444444;
+  --text-gray: #888888;
+  --orange: #E8913A;
+  --red-icon: #D94F3D;
+  --red-btn: #D94040;
+  --blue-btn: #6B9FD4;
+  --border: #C8C8C8;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --radius: 8px;
+  --radius-sm: 4px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text-dark);
+  min-height: 100vh;
+  font-size: 14px;
+}
+
+/* ─── Header ─── */
+.header {
+  background: var(--teal-dark);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+}
+
+.header-logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  color: white;
+  text-decoration: none;
+}
+
+.header-right {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.header-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.15);
+  border: 1.5px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.btn-header:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ─── Page wrapper ─── */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.page-wide {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s;
+  text-decoration: none;
+}
+
+.btn:hover { opacity: 0.85; }
+
+.btn-primary {
+  background: var(--blue-btn);
+  color: white;
+}
+
+.btn-danger {
+  background: var(--red-btn);
+  color: white;
+}
+
+.btn-icon-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+/* ─── Icon buttons (pencil, share, arrows) ─── */
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--text-gray);
+  font-size: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.15s;
+}
+
+.icon-btn:hover { color: var(--text-dark); }
+
+/* ─── Section headings ─── */
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+/* ─── Itinerary List page ─── */
+.upcoming-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.upcoming-card {
+  background-color: #4A9E8E;
+  border-radius: var(--radius);
+  position: relative;
+  min-height: 160px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.15s;
+}
+
+.upcoming-card:hover {
+  transform: translateY(-2px);
+}
+
+.upcoming-card-edit {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  color: white;
+}
+
+.upcoming-card-body {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.upcoming-card-days {
+  font-size: 13px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 6px;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.upcoming-card-name {
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: white;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.upcoming-card-dates {
+  font-size: 12px;
+  font-style: italic;
+  margin-bottom: 2px;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.upcoming-card-cost {
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.other-list {
+  background: transparent;
+}
+
+.other-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.other-list-item:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.other-list-item-name {
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* ─── Itinerary Detail page ─── */
+.trip-header-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+  align-items: stretch;
+  min-height: 220px;
+}
+
+.trip-info-card {
+  background: var(--card-gray);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  position: relative;
+  flex: 3;
+}
+
+.trip-map-wrapper {
+  flex: 2;
+  border-radius: var(--radius);
+  overflow: hidden;
+  min-height: 220px;
+}
+
+.trip-map {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+}
+
+.trip-map-empty {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-gray);
+  color: var(--text-gray);
+  font-size: 13px;
+  font-style: italic;
+}
+
+.trip-info-actions {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+}
+
+.trip-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.trip-description {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.trip-meta {
+  font-size: 13px;
+  color: var(--text-dark);
+  line-height: 1.8;
+}
+
+/* ─── Day / Timeline ─── */
+.day-section {
+  margin-bottom: 24px;
+}
+
+.day-map-wrapper {
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  min-height: 260px;
+  margin-bottom: 8px;
+}
+
+.day-label {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.day-label-num {
+  color: var(--teal);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: 16px;
+  border-left: 2px solid #C0C0C0;
+  margin-left: 8px;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--teal);
+  border-radius: 50%;
+  position: absolute;
+  left: -25px;
+  top: 2px;
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--teal);
+}
+
+.timeline-time {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--teal);
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.activity-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.activity-card-actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.activity-type {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  padding-right: 80px;
+}
+
+.activity-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(74, 158, 142, 0.12);
+  color: var(--teal);
+  border-radius: 10px;
+  padding: 8px 12px;
+  line-height: 1.2;
+}
+
+.activity-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.activity-icon {
+  font-size: 14px;
+  flex-shrink: 0;
+  width: 20px;
+  text-align: center;
+  line-height: 1;
+  margin-top: 2px; /* nudge down to align with text cap-height */
+}
+
+.activity-location-name {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 2px;
+}
+
+.activity-location-addr {
+  font-size: 11px;
+  color: var(--text-gray);
+  line-height: 1.4;
+}
+
+.activity-cost {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.ticket-status-row {
+  font-size: 12px;
+  color: var(--text-gray);
+  margin-left: 2px;
+}
+
+.ticket-status-row span {
+  margin-right: 4px;
+}
+
+.ticket-status-row .active {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.ticket-status-row .inactive {
+  color: var(--text-gray);
+}
+
+.activity-details-text {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+.activity-details-label {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.add-activity-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  padding-bottom: 32px;
+}
+
+/* ─── Edit Itinerary form ─── */
+.edit-page-title {
+  font-size: 22px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 24px;
+}
+
+.edit-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+@media (max-width: 700px) {
+  .edit-two-col {
+    grid-template-columns: 1fr;
+  }
+  .trip-header-row {
+    flex-direction: column;
+  }
+  .trip-map-wrapper {
+    min-height: 200px;
+  }
+}
+
+.form-section-label {
+  font-size: 14px;
+  font-weight: 700;
+  font-style: italic;
+  margin-bottom: 12px;
+  margin-top: 20px;
+}
+
+.form-field {
+  margin-bottom: 14px;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: white;
+  font-size: 13px;
+  font-family: inherit;
+  color: var(--text-dark);
+  outline: none;
+  box-shadow: var(--shadow);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-gray);
+  font-style: italic;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  cursor: pointer;
+}
+
+.form-select option {
+  font-style: normal;
+}
+
+.image-upload-box {
+  background: var(--card-gray);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-upload-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.image-upload-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid);
+  background: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.form-btn-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+/* ─── Edit Activity form ─── */
+.activity-form-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 10px 20px;
+  align-items: start;
+}
+
+.activity-form-label {
+  font-size: 13px;
+  font-weight: 700;
+  font-style: italic;
+  padding-top: 10px;
+  text-align: right;
+}
+
+.activity-form-field {
+  padding-top: 0;
+}
+
+.form-hint {
+  font-size: 12px;
+  color: var(--text-gray);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+.cost-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cost-currency-label {
+  font-size: 13px;
+  font-weight: 700;
+  font-style: italic;
+  white-space: nowrap;
+}
+
+.form-input-datetime {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: 0 14px 0 14px;
+}
+
+.form-input-datetime input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 10px 0;
+  font-size: 13px;
+  font-family: inherit;
+  background: transparent;
+  color: var(--text-gray);
+}
+
+.form-input-datetime .cal-icon {
+  font-size: 20px;
+  color: var(--text-gray);
+  cursor: pointer;
+}
+
+/* ─── Arrow buttons ─── */
+.arrow-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-gray);
+  padding: 2px 4px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+.arrow-btn:hover { color: var(--text-dark); }
+
+/* ─── Pencil / Share SVG icons ─── */
+.svg-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ─── Custom date / datetime input ─── */
+.date-input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: white;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: 10px 14px;
+  cursor: pointer;
+  width: 100%;
+  color: var(--text-gray);
+}
+
+/* input is a 0×0 invisible stub — picker opened via showPicker() on wrapper click */
+.date-hidden-input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+}
+
+.date-display-val {
+  font-size: 13px;
+  color: var(--text-dark);
+}
+
+.date-placeholder {
+  font-size: 13px;
+  color: var(--text-gray);
+  font-style: italic;
+}
+
+/* ─── Trip card image overlay ─── */
+.trip-info-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.trip-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(207, 207, 207, 0.82);
+  z-index: 0;
+}
+
+.trip-info-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Ticket status badge ─── */
+.ticket-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 10px;
+  letter-spacing: 0.3px;
+}
+
+.ticket-secured {
+  color: var(--teal);
+  background: rgba(38, 168, 154, 0.12);
+}
+
+.ticket-unbooked {
+  color: var(--text-gray);
+  background: rgba(130, 130, 130, 0.1);
+}
+
+.ticket-goshow {
+  color: var(--orange);
+  background: rgba(232, 145, 58, 0.12);
+}
+
+/* ─── Inline activity form card ─── */
+.inline-form-card {
+  background: white;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+/* ─── Cancel button ─── */
+.btn-cancel {
+  background: #999999;
+  color: white;
+}
+
+/* ─── Location autocomplete ─── */
+.location-wrapper {
+  position: relative;
+}
+
+.location-suggestions {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 200;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.location-suggestions li {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid #EEEEEE;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.location-suggestions li:last-child {
+  border-bottom: none;
+}
+
+.location-suggestions li:hover {
+  background: var(--bg);
+}
+
+.suggestion-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.suggestion-addr {
+  font-size: 11px;
+  color: var(--text-gray);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

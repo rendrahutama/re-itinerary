@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Rounded square background -->
+  <rect width="512" height="512" rx="112" fill="#009688"/>
+
+  <!-- Dashed route path -->
+  <path d="M110 340 Q180 200 256 220 Q330 240 400 130"
+        fill="none" stroke="white" stroke-width="18"
+        stroke-dasharray="28 18" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- Start pin (circle) -->
+  <circle cx="110" cy="340" r="26" fill="white" opacity="0.9"/>
+  <circle cx="110" cy="340" r="14" fill="#009688"/>
+
+  <!-- End pin (teardrop) -->
+  <path d="M400 90 C372 90 354 108 354 132 C354 156 400 190 400 190 C400 190 446 156 446 132 C446 108 428 90 400 90Z"
+        fill="white"/>
+  <circle cx="400" cy="130" r="18" fill="#009688"/>
+
+  <!-- Calendar strip -->
+  <rect x="136" y="370" width="240" height="90" rx="14" fill="white" opacity="0.18"/>
+  <rect x="136" y="370" width="240" height="26" rx="14" fill="white" opacity="0.28"/>
+  <circle cx="176" cy="416" r="8" fill="white" opacity="0.7"/>
+  <circle cx="216" cy="416" r="8" fill="white" opacity="0.7"/>
+  <circle cx="256" cy="416" r="8" fill="white" opacity="0.9"/>
+  <circle cx="296" cy="416" r="8" fill="white" opacity="0.7"/>
+  <circle cx="336" cy="416" r="8" fill="white" opacity="0.7"/>
+  <circle cx="256" cy="416" r="14" fill="white" opacity="0.25"/>
+</svg>

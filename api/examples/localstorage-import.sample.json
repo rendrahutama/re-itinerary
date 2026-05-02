@@ -1,0 +1,31 @@
+[
+  {
+    "id": "legacy-1",
+    "name": "Imported Local Trip",
+    "description": "Imported from browser localStorage",
+    "startDate": "2026-08-10",
+    "endDate": "2026-08-12",
+    "currency": "IDR",
+    "estimatedCost": 750000,
+    "image": null,
+    "createdAt": "2026-04-01T00:00:00Z",
+    "activities": [
+      {
+        "id": "legacy-a1",
+        "datetime": "2026-08-10T09:30",
+        "type": "Train",
+        "identification": "Argo Bromo",
+        "location": {
+          "name": "Gambir Station",
+          "address": "Jakarta",
+          "lat": -6.1762,
+          "lng": 106.8304
+        },
+        "cost": 350000,
+        "ticketStatus": "Secured",
+        "details": "Platform check",
+        "sortOrder": 0
+      }
+    ]
+  }
+]
