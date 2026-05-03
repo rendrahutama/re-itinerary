@@ -5,6 +5,7 @@
 frontend/node_modules/
 frontend/dist/
 frontend/.env
+frontend/.env.backup
 
 api/.env
 api/db/.env

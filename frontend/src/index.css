@@ -846,6 +846,23 @@ body {
   padding-top: 0;
 }
 
+@media (max-width: 540px) {
+  .activity-form-grid {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .activity-form-label {
+    text-align: left;
+    padding-top: 12px;
+    padding-bottom: 0;
+  }
+
+  .activity-form-field {
+    padding-top: 0;
+  }
+}
+
 .form-hint {
   font-size: 12px;
   color: var(--text-gray);

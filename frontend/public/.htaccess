@@ -5,6 +5,9 @@ RewriteCond %{HTTP_USER_AGENT} (facebookexternalhit|Facebot|Twitterbot|WhatsApp|
 RewriteCond %{REQUEST_URI} ^/itinerary/[^/]+/?$
 RewriteRule ^ og.php [L]
 
+# Route /sitemap.xml to API
+RewriteRule ^sitemap\.xml$ api/index.php [QSA,L]
+
 # Route /api/* requests to api/index.php
 RewriteCond %{REQUEST_URI} ^/api/
 RewriteCond %{REQUEST_FILENAME} !-f
